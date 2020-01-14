@@ -1,0 +1,172 @@
+/* Базовый шаблон
+В данном файле присутствуют возможные примеры
+Для вертикального ритма используем:
+padding-top,
+padding-bottom,
+margin-top,
+margin-bottom,
+border-top,
+border-bottom,
+height,
+font-size,
+line-height,
+vertical-align
+
+Так же можно прописать типовые классы на конкретные теги
+*/
+.ustyle {
+  // свойства
+
+  & > h2:first-of-type,
+  & > h3:first-of-type,
+  & > h4:first-of-type,
+  & > h5:first-of-type,
+  & > h6:first-of-type {
+	// свойства
+	padding-top: 0;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+	// свойства
+	@include resize(padding-top, 15, 10, 5);
+	@include resize(margin-bottom, 15, 10, 5);
+
+	& + p,
+	& + ul,
+	& + ol,
+	& + table {
+	  // свойства
+	  padding-top: 0;
+	}
+  }
+
+  p,
+  ul,
+  ol,
+  table {
+	// свойства
+	& + h2,
+	& + h3,
+	& + h4,
+	& + h5,
+	& + h6 {
+	  // свойства
+	  @include resize(padding-top, 45, 30, 15);
+	}
+  }
+
+  div {
+	// свойства
+  }
+
+  p {
+	// свойства
+	@include resize(margin-bottom, 15, 10, 5);
+	@include resize(padding-top, 15, 10, 5);
+	@include resize(font-size, 19, 16, 14);
+
+	&:first-child {
+	  // свойства
+	  padding-top: 0;
+	}
+
+	&:last-child {
+	  // свойства
+	  margin-bottom: 0;
+	}
+
+	& + ul,
+	& + ol,
+	& + table {
+	  // свойства
+	  padding-top: 0;
+	}
+  }
+
+  span {
+	// свойства
+  }
+
+  table {
+	// свойства
+	color: $black;
+	width: auto;
+
+	& + p,
+	& + ul,
+	& + ol {
+	  // свойства
+	  padding-top: 0;
+	}
+  }
+
+  ul,
+  ol {
+	// свойства
+	@include resize(margin-bottom, 15, 10, 5);
+	@include resize(padding-top, 15, 10, 5);
+
+	&:first-child {
+	  // свойства
+	  padding-top: 0;
+	}
+
+	&:last-child {
+	  // свойства
+	  margin-bottom: 0;
+	}
+
+	li {
+	  // свойства
+	  padding-left: 19px;
+
+	  &:before {
+		// свойства
+		width: 14px;
+		height: 2px;
+		top: 16px;
+	  }
+	}
+
+	& + p,
+	& + table {
+	  // свойства
+	  margin-bottom: 0;
+	}
+  }
+
+  img {
+	// свойства
+	display: block;
+	max-width: 100%;
+	height: auto;
+  }
+
+  a {
+	// свойства
+  }
+
+  a[target] {
+	word-break: break-all;
+	// свойства
+  }
+
+  a[href^="tel:"],
+  a[href^="email:"] {
+	// свойства
+	white-space: nowrap;
+  }
+
+  /* Здесь прописываем модификаторы
+  Например,
+  &.-news {
+  }
+  &.-article {
+  }
+  */
+}
+
